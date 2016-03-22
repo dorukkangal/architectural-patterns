@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">16dp</dimen>
+
+    <!--Contact List-->
+    <dimen name="list_item_contact_card_view_margin">4dp</dimen>
+    <dimen name="list_item_contact_image_view_photo_size">45dp</dimen>
+    <dimen name="list_item_contact_image_view_photo_horizontal_margin">6dp</dimen>
+</resources>

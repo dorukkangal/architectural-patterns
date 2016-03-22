@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.0.0-beta6'
+
+        classpath 'com.android.databinding:dataBinder:1.0-rc4'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext.minSdkVersion = 21
+ext.compileSdkVersion = 23
+ext.targetSdkVersion = 23
+ext.buildToolsVersion = '23.0.0'
+
+ext.deps = [
+        appCompat         : 'com.android.support:appcompat-v7:23.1.1',
+        design            : 'com.android.support:design:23.1.1',
+        recyclerview      : 'com.android.support:recyclerview-v7:23.1.1',
+        cardview          : 'com.android.support:cardview-v7:23.1.1',
+        supportAnnotations: 'com.android.support:support-annotations:23.1.1'
+]
