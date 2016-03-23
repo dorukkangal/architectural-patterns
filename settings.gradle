@@ -1,2 +1,3 @@
+include ':mvp'
 include ':mvc'
 include ':library'
