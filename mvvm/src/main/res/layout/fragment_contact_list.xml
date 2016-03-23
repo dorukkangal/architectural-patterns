@@ -1,0 +1,30 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dorukkangal.android.mvvm.contact.ContactListViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Progress State -->
+        <include
+            layout="@layout/layout_progress"
+            bind:visible="@{!viewModel.isDataLoaded}"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_contact_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:items="@{viewModel.contacts}"/>
+
+    </RelativeLayout>
+
+</layout>

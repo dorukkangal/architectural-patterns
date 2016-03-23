@@ -1,0 +1,60 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dorukkangal.android.mvvm.contact.ContactItemViewModel"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/recycler_item_offer_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/list_item_contact_card_view_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/list_item_contact_image_view_photo"
+                android:layout_width="@dimen/list_item_contact_image_view_photo_size"
+                android:layout_height="@dimen/list_item_contact_image_view_photo_size"
+                android:layout_marginEnd="@dimen/list_item_contact_image_view_photo_horizontal_margin"
+                android:src="@drawable/ic_person"/>
+
+            <TextView
+                android:id="@+id/list_item_contact_text_view_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="@{viewModel.contact.name}"
+                tools:text="Name"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel.onCallClick}"
+                android:src="@drawable/ic_call"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel.onSendEmailClick}"
+                android:src="@drawable/ic_email"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewModel.onDeleteClick}"
+                android:src="@drawable/ic_delete"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>
