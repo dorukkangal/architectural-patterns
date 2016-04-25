@@ -10,12 +10,12 @@ import com.dorukkangal.android.mvvm.R;
 import com.dorukkangal.android.mvvm.base.BaseMvvmFragment;
 import com.dorukkangal.android.mvvm.binding.RecyclerViewListBindingAdapter;
 import com.dorukkangal.android.mvvm.databinding.FragmentContactListBinding;
+import com.dorukkangal.android.mvvm.objectgraph.DependencyProvider;
 
 /**
  * @author Doruk Kangal
  */
-public class ContactListFragment extends BaseMvvmFragment<ContactListViewModel>
-        implements ContactListView {
+public class ContactListFragment extends BaseMvvmFragment<ContactListViewModel> {
 
     public static ContactListFragment newInstance() {
         return new ContactListFragment();
@@ -28,7 +28,11 @@ public class ContactListFragment extends BaseMvvmFragment<ContactListViewModel>
 
     @Override
     public ContactListViewModel createViewModel() {
-        return new ContactListViewModel();
+
+        ContactListViewModel viewModel = new ContactListViewModel();
+        DependencyProvider.getInstance().getActivityComponent().inject(viewModel);
+
+        return viewModel;
     }
 
     @Override

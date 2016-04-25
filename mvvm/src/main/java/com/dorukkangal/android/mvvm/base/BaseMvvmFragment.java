@@ -16,8 +16,7 @@ import com.dorukkangal.android.library.base.BaseFragment;
  * @param <VM> indicates the viewModel responsible to manage this fragment.
  * @author Doruk Kangal
  */
-public abstract class BaseMvvmFragment<VM extends BaseViewModel>
-        extends BaseFragment implements BaseView {
+public abstract class BaseMvvmFragment<VM extends BaseViewModel> extends BaseFragment {
 
     /**
      * The view model class for this view.
@@ -36,7 +35,7 @@ public abstract class BaseMvvmFragment<VM extends BaseViewModel>
     @Override
     public void onStart() {
         if (viewModel != null) {
-            viewModel.attachView(this);
+            viewModel.attachView();
         }
 
         super.onStart();

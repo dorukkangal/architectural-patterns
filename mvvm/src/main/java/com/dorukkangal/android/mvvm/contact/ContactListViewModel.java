@@ -5,31 +5,36 @@ import android.databinding.ObservableBoolean;
 
 import com.dorukkangal.android.library.dao.Contact;
 import com.dorukkangal.android.library.dao.ContactDaoManager;
-import com.dorukkangal.android.library.service.ActionService;
 import com.dorukkangal.android.mvvm.base.BaseViewModel;
+import com.dorukkangal.android.mvvm.service.ActionService;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * @author Doruk Kangal
  */
-public class ContactListViewModel extends BaseViewModel<ContactListView> {
+public class ContactListViewModel extends BaseViewModel {
 
     private ObservableArrayList<ContactItemViewModel> contacts = new ObservableArrayList<>();
 
     private ObservableBoolean dataLoaded = new ObservableBoolean();
 
+    @Inject
+    ActionService actionService;
+
     private final Action<Contact> callAction = new Action<Contact>() {
         @Override
         public void perform(Contact contact) {
-            ActionService.makeCall(getView().getActivity(), contact.getPhone());
+            actionService.makeCall(contact.getPhone());
         }
     };
 
     private final Action<Contact> sendEmailAction = new Action<Contact>() {
         @Override
         public void perform(Contact contact) {
-            ActionService.sendEmail(getView().getActivity(), contact.getEmail());
+            actionService.sendEmail(contact.getEmail());
         }
     };
 
@@ -46,8 +51,8 @@ public class ContactListViewModel extends BaseViewModel<ContactListView> {
     };
 
     @Override
-    public void attachView(ContactListView view) {
-        super.attachView(view);
+    public void attachView() {
+        super.attachView();
 
         final List<Contact> results = ContactDaoManager.getAllContacts();
         onQueryComplete(results);

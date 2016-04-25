@@ -10,7 +10,7 @@ import com.dorukkangal.android.mvvm.base.BaseViewModel;
 /**
  * @author Doruk Kangal
  */
-public class ContactItemViewModel extends BaseViewModel<ContactListView> {
+public class ContactItemViewModel extends BaseViewModel {
 
     @Bindable
     private final ObservableField<Contact> contact = new ObservableField<>();
